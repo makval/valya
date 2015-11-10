@@ -1,13 +1,18 @@
-#summator y=S(sin(dx))[dx=delta=N/n]
+##summator y=S(sin(dx))[dx=delta=N/n]
+CC=g++
+CLEAN=rm -f
+PROGRAM_NAME=Summ
+OBJECT_FILES=main.o
+SOURCE_FILES=main.cpp
 
-all: Summ
+all: $(PROGRAM_NAME)
 
-Summ: main.o
-	gcc main.o -o Summ -lpthread
+$(PROGRAM_NAME): $(OBJECT_FILES)
+	$(CC) -pthread -o $@ $^
 
-main.o: main.c
-	gcc -fPIC -c main.c
+$(OBJECT_FILES): $(SOURCE_FILES)
+	$(CC) -fPIC -c -pthread $^
 
 clean:
-	rm -rf *.o
-	rm Summ
+	$(CLEAN) $(OBJECT_FILES)
+	$(CLEAN) $(PROGRAM_NAME)
