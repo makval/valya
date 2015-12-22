@@ -1,0 +1,1 @@
+cmd_/home/study/valya/001L43/main.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/study/valya/001L43/main.ko /home/study/valya/001L43/main.o /home/study/valya/001L43/main.mod.o
